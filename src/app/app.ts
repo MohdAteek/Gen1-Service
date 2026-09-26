@@ -41,6 +41,28 @@ interface FaqItem {
   isOpen: boolean;
 }
 
+interface BrandCompany {
+  id: string;
+  name: string;
+  tagline: string;
+  specialty: string;
+  accentColor: string;
+  badge: string;
+  logoClass: string;
+}
+
+interface Technician {
+  name: string;
+  role: string;
+  experience: string;
+  image: string;
+  rating: number;
+  jobsCompleted: number;
+  specialties: string[];
+  status: string;
+  badge: string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -49,6 +71,47 @@ interface FaqItem {
   styleUrl: './app.css'
 })
 export class App {
+  // Application Information
+  readonly appName = 'Saroj Gas Stove Repair Service Center';
+  readonly appShortName = 'Saroj Service Center';
+
+  // Certified Field Technicians
+  readonly technicians: Technician[] = [
+    {
+      name: 'Rahul Sharma',
+      role: 'Lead Gas Hob & Ignition Specialist',
+      experience: '8+ Years Exp',
+      image: '/technicians/tech-lead.jpg',
+      rating: 4.95,
+      jobsCompleted: 1840,
+      specialties: ['Siemens StepFlame Hobs', 'Bosch FlameSelect', 'Faber Pulse Ignition', 'Manifold Pressure Testing'],
+      status: 'On Standby in Anand Vihar',
+      badge: 'Verified & Police Checked'
+    },
+    {
+      name: 'Rajesh Kumar',
+      role: 'Master Burner & Valve Engineer',
+      experience: '10+ Years Exp',
+      image: '/technicians/tech-repair.jpg',
+      rating: 4.98,
+      jobsCompleted: 2420,
+      specialties: ['Hafele & Elica Hobs', 'Brass Burner Descaling', 'Gas Valve Microswitches', 'PNG/LPG Jet Conversion'],
+      status: 'Available in Ghaziabad',
+      badge: 'Master Gas Technician'
+    },
+    {
+      name: 'Amit Verma',
+      role: 'Gas Leakage & Safety Inspector',
+      experience: '7+ Years Exp',
+      image: '/technicians/tech-safety.jpg',
+      rating: 4.92,
+      jobsCompleted: 1210,
+      specialties: ['Electronic Gas Sniffer Testing', 'Crompton DuraHobs', 'Hindware Auto-Ignition', 'Kitchen Safety Audit'],
+      status: '24/7 Rapid Response',
+      badge: 'Safety Certified'
+    }
+  ];
+
   // Brand & Location State
   readonly primaryPhone = '7042121052';
   readonly secondaryPhone = '';
@@ -56,7 +119,7 @@ export class App {
 
   selectedCity = signal('Ghaziabad');
   selectedLocality = signal('Anand Vihar');
-  selectedBrand = signal('Faber');
+  selectedBrand = signal('Siemens');
   
   isMobileMenuOpen = signal(false);
   isBookingModalOpen = signal(false);
@@ -68,12 +131,12 @@ export class App {
   bookingForm = {
     name: '',
     phone: '',
-    serviceType: 'Faber Hob Auto-Ignition Repair',
+    serviceType: 'Siemens Hob Auto-Ignition Repair',
     date: 'Today',
     timeSlot: 'Within 60 Mins (Emergency)',
     address: 'Anand Vihar, Ghaziabad',
     problemNotes: '',
-    couponCode: 'GEN1FIRST'
+    couponCode: 'SAROJFIRST'
   };
 
   confirmedBookingId = signal<string>('');
@@ -108,10 +171,101 @@ export class App {
     'Crossings Republik'
   ];
 
-  // Supported Brands
+  // Supported Brands (9 Leading Companies with Dedicated Logos)
   readonly brands = [
-    'Faber', 'Glen', 'Prestige', 'Kaff', 'Hindware', 
-    'Bosch', 'Sunflame', 'Pigeon', 'Butterfly', 'Bajaj', 'Whirlpool'
+    'Siemens',
+    'Bosch',
+    'Faber',
+    'Glen',
+    'Elica',
+    'Hafele',
+    'Gilma',
+    'Crompton',
+    'Hindware'
+  ];
+
+  readonly brandCompanies: BrandCompany[] = [
+    {
+      id: 'siemens',
+      name: 'Siemens',
+      tagline: 'German Engineering & iQ700 Gas Hobs',
+      specialty: 'StepFlame technology, electronic pulse spark & gas valves',
+      accentColor: '#00646E',
+      badge: 'German Precision',
+      logoClass: 'logo-siemens'
+    },
+    {
+      id: 'bosch',
+      name: 'Bosch',
+      tagline: 'FlameSelect & Serie Built-in Hobs',
+      specialty: 'Dual wok burners, flame failure safety & microswitch repair',
+      accentColor: '#EA1B23',
+      badge: 'Certified Parts',
+      logoClass: 'logo-bosch'
+    },
+    {
+      id: 'faber',
+      name: 'Faber',
+      tagline: 'Italian High-Flame Brass Stoves',
+      specialty: 'Heavy brass burners, pulse generators & manifold seals',
+      accentColor: '#E30613',
+      badge: 'Original Spares',
+      logoClass: 'logo-faber'
+    },
+    {
+      id: 'glen',
+      name: 'Glen',
+      tagline: 'Modern Italian Styling & Toughened Glass Hobs',
+      specialty: 'Forged brass multi-spark burners, ergonomic knobs & thermal glass hobs',
+      accentColor: '#D9232E',
+      badge: 'Innovative Tech',
+      logoClass: 'logo-glen'
+    },
+    {
+      id: 'elica',
+      name: 'Elica',
+      tagline: 'Designer Glass Cooktops & Hobs',
+      specialty: 'Multi-flame crown calibration & sealed burner cups',
+      accentColor: '#18181b',
+      badge: 'Italian Design',
+      logoClass: 'logo-elica'
+    },
+    {
+      id: 'hafele',
+      name: 'Hafele',
+      tagline: 'Altius & Vortex Heavy Brass Ranges',
+      specialty: 'Direct flame injection & flame-failure thermopile safety',
+      accentColor: '#D40028',
+      badge: 'Premium Luxury',
+      logoClass: 'logo-hafele'
+    },
+    {
+      id: 'gilma',
+      name: 'Gilma',
+      tagline: 'High Thermal Glass Stoves & Cooktops',
+      specialty: 'Forged brass jets, simmer tuning & anti-leak valve assemblies',
+      accentColor: '#E63946',
+      badge: 'High Fuel Savings',
+      logoClass: 'logo-gilma'
+    },
+    {
+      id: 'crompton',
+      name: 'Crompton',
+      tagline: 'DuraHobs & Tri-Ring Brass Stoves',
+      specialty: 'Thermal shock resistance & durable continuous spark igniters',
+      accentColor: '#005A9C',
+      badge: 'Trusted Quality',
+      logoClass: 'logo-crompton'
+    },
+    {
+      id: 'hindware',
+      name: 'Hindware',
+      tagline: 'Enliven & Italian Flame Technology',
+      specialty: 'High-torque knobs, spark electrodes & LPG-PNG nozzle conversions',
+      accentColor: '#C8102E',
+      badge: 'Expert Service',
+      logoClass: 'logo-hindware'
+    }
   ];
 
   // Diagnostic Problems List
@@ -173,12 +327,12 @@ export class App {
     {
       id: 'hob-repair',
       category: 'repair',
-      title: 'Faber Gas Stove & Kitchen Hob Repair',
-      shortDesc: 'Complete doorstep repair for ignition failure, gas leaks, weak flame, and burner choking with 100% genuine spare parts.',
-      fullDesc: 'Expert doorstep diagnosis for all Faber built-in hobs and glass top gas stoves. We address faulty ignition modules, damaged flame valves, clogged gas jets, and loose knobs. Includes 90-day warranty on all replaced components.',
+      title: 'Multi-Brand Gas Stove & Hob Repair',
+      shortDesc: 'Certified doorstep repair for ignition failure, gas leaks, weak flame, and burner choking with 100% genuine spare parts.',
+      fullDesc: 'Expert doorstep diagnosis for Siemens, Bosch, Faber, Elica, Hafele, Gilma, Crompton, and Hindware built-in hobs and glass top gas stoves. We address faulty ignition modules, damaged flame valves, clogged gas jets, and loose knobs. Includes 90-day warranty on all replaced components.',
       priceStart: 299,
       badge: 'Most Popular',
-      features: ['Same-day doorstep visit in 60 mins', '100% genuine Faber OEM parts', '90-Day post-repair warranty', 'Full gas pressure & safety check'],
+      features: ['Same-day doorstep visit in 60 mins', '100% genuine OEM spare parts', '90-Day post-repair warranty', 'Full gas pressure & safety check'],
       icon: 'tool'
     },
     {
@@ -186,7 +340,7 @@ export class App {
       category: 'repair',
       title: 'Electric & Induction Hob Repair',
       shortDesc: 'Specialized electronic repair for touch panels, power modules, heating coils, and induction error codes.',
-      fullDesc: 'Facing heating drop or error codes on your electric hob? Certified technicians diagnose circuit boards, thermostat sensors, and heating coils to restore optimal thermal performance safely.',
+      fullDesc: 'Facing heating drop or error codes on your Siemens, Bosch, or Faber electric hob? Certified technicians diagnose circuit boards, thermostat sensors, and heating coils to restore optimal thermal performance safely.',
       priceStart: 499,
       badge: 'Electronics Safe',
       features: ['PCB board component testing', 'Sensor calibration', 'Overheat protection check', 'Safe electrical load validation'],
@@ -197,7 +351,7 @@ export class App {
       category: 'install',
       title: 'Safe Gas Stove & Hob Installation',
       shortDesc: 'Precision countertop cutout alignment, leak-proof copper/braided pipeline fitting, and flame calibration.',
-      fullDesc: 'Get your new Faber built-in hob installed with millimeter precision. We verify granite countertop cutouts, ensure airtight pipeline fittings, connect regulator hoses, and run complete burner flame tests.',
+      fullDesc: 'Get your new built-in hob installed with millimeter precision. We verify granite countertop cutouts for Siemens, Bosch, Faber, Hafele, and all major brands, ensure airtight pipeline fittings, connect regulator hoses, and run complete burner flame tests.',
       priceStart: 399,
       badge: 'Certified Safe',
       features: ['Laser level countertop fitment', 'Pressure leak testing on joints', 'Regulator & hose setup', 'Burner ignition flame balancing'],
@@ -260,7 +414,7 @@ export class App {
       category: 'amc',
       title: 'Lifetime Warranty Plan (LTW) & AMC',
       shortDesc: 'All-inclusive annual maintenance with 2 scheduled deep services, priority breakdown calls, and free parts.',
-      fullDesc: 'Protect your Faber kitchen investment. Enjoy uninterrupted cooking with periodic health checks, ultrasonic cleaning, zero-labor emergency breakdown visits, and heavily discounted genuine spare parts.',
+      fullDesc: 'Protect your kitchen investment with Saroj Gas Stove Repair Service Center. Enjoy uninterrupted cooking with periodic health checks, ultrasonic cleaning, zero-labor emergency breakdown visits, and heavily discounted genuine spare parts.',
       priceStart: 1299,
       badge: 'Best Value',
       features: ['2 Comprehensive yearly services', 'Unlimited emergency breakdown visits', 'Zero labor charges all year', 'Priority VIP technician dispatch'],
@@ -286,23 +440,23 @@ export class App {
       location: 'Sector 31, Anand Vihar, Ghaziabad',
       rating: 5,
       date: '3 days ago',
-      review: 'My 4-burner Faber glass hob auto-ignition failed right before our anniversary dinner party. Called Gen1service at 5 PM, technician Rahul reached in 45 minutes, replaced the ignition module, cleaned all nozzles, and it was working like brand new by 6:15 PM. Super impressed!',
-      appliance: 'Faber 4-Burner Glass Hob'
+      review: 'My 4-burner Siemens glass hob auto-ignition failed right before our anniversary dinner party. Called Saroj Gas Stove Repair Service Center at 5 PM, technician Rahul reached in 45 minutes, replaced the ignition module, cleaned all nozzles, and it was working like brand new by 6:15 PM. Super impressed!',
+      appliance: 'Siemens 4-Burner Glass Hob'
     },
     {
       name: 'Pooja Sharma',
       location: 'Kaushambi, Near Anand Vihar Border',
       rating: 5,
       date: '1 week ago',
-      review: 'Had a slight gas smell near the knob. The technician arrived with a digital gas sensor, immediately located a damaged manifold seal, and fixed it safely. Great professionalism and reasonable rates.',
-      appliance: 'Faber 3-Burner Built-in Hob'
+      review: 'Had a slight gas smell near the knob of our Bosch built-in hob. The Saroj Gas Stove Repair technician arrived with a digital gas sensor, immediately located a damaged manifold seal, and fixed it safely. Great professionalism and reasonable rates.',
+      appliance: 'Bosch 3-Burner Built-in Hob'
     },
     {
       name: 'Rajat Singhal',
       location: 'Vaishali Sector 4, Ghaziabad',
       rating: 5,
       date: '2 weeks ago',
-      review: 'Booked the Deep Cleaning + Burner Tune-up service. The yellow lazy flame got converted into a roaring blue flame! Utensils are no longer turning black. Highly recommend their AMC plan too.',
+      review: 'Booked the Deep Cleaning + Burner Tune-up service for our Faber cooktop. The yellow lazy flame got converted into a roaring blue flame! Utensils are no longer turning black. Highly recommend their AMC plan too.',
       appliance: 'Faber Cooktop 3 Burner'
     }
   ];
@@ -310,37 +464,37 @@ export class App {
   // Frequently Asked Questions
   readonly faqs: FaqItem[] = [
     {
-      question: 'What are the common problems found in Faber Gas Stoves & Kitchen Hobs?',
-      answer: 'Common issues include: (1) Auto-ignition continuous clicking without lighting, (2) Yellow, weak, or uneven flickering flame due to clogged burner jets, (3) Pungent gas smell indicating deteriorated seals or pipe cracks, (4) Jammed or slipping control knobs, and (5) Carbon crust choking secondary air holes. All these can be safely repaired at your doorstep within 60-90 minutes.',
+      question: 'What are the common problems found in Gas Stoves & Kitchen Hobs?',
+      answer: 'Common issues include: (1) Auto-ignition continuous clicking without lighting, (2) Yellow, weak, or uneven flickering flame due to clogged burner jets, (3) Pungent gas smell indicating deteriorated seals or pipe cracks, (4) Jammed or slipping control knobs, and (5) Carbon crust choking secondary air holes. Saroj Gas Stove Repair Service Center certified technicians safely resolve these at your doorstep within 60-90 minutes.',
       category: 'General',
       isOpen: true
     },
     {
-      question: 'How much does Faber Gas Stove or Hob servicing cost in Anand Vihar, Ghaziabad?',
+      question: 'How much does Gas Stove or Hob servicing cost in Anand Vihar, Ghaziabad?',
       answer: 'Our transparent pricing starts with a nominal inspection charge of ₹199 (adjusted against repair bill). Basic tune-ups start at ₹299, auto-ignition module repairs start around ₹349, and complete chemical-free deep degreasing is ₹499. You receive an upfront written estimate before any work begins, with zero hidden charges.',
       category: 'Pricing',
       isOpen: false
     },
     {
-      question: 'Do you offer same-day service for Faber Gas Stove & Hob repair in Ghaziabad?',
-      answer: 'Yes! We maintain dedicated local mobile service vans across Anand Vihar, Kaushambi, Vaishali, Indirapuram, and surrounding Ghaziabad areas. In emergency cases (such as gas leaks or total cooking disruption), our certified technician reaches your doorstep within 60 minutes.',
+      question: 'Do you offer same-day service for Siemens, Bosch, Faber, Elica, Hafele & other brands?',
+      answer: 'Yes! We maintain dedicated local mobile service vans across Anand Vihar, Kaushambi, Vaishali, Indirapuram, and surrounding Ghaziabad areas for Siemens, Bosch, Faber, Elica, Hafele, Gilma, Crompton, and Hindware. In emergency cases (such as gas leaks or cooking disruptions), our certified technician reaches your doorstep within 60 minutes.',
       category: 'Service',
       isOpen: false
     },
     {
-      question: 'Are the replacement spare parts 100% genuine Faber OEM?',
-      answer: 'Absolutely. We only use 100% brand-authentic, high-grade brass burners, OEM ignition modules, heavy-duty spark electrodes, and certified high-pressure gas valves. Every spare part replaced comes with an official 90-day Gen1service replacement warranty.',
+      question: 'Are the replacement spare parts 100% genuine OEM?',
+      answer: 'Absolutely. We only use 100% brand-authentic, high-grade brass burners, OEM ignition modules, heavy-duty spark electrodes, and certified high-pressure gas valves for all supported brands. Every spare part replaced comes with an official 90-day Saroj Gas Stove Repair Service Center replacement warranty.',
       category: 'Parts & Warranty',
       isOpen: false
     },
     {
-      question: 'Does Gen1service provide Annual Maintenance Contracts (AMC) for Faber appliances?',
+      question: 'Does Saroj Gas Stove Repair Service Center provide Annual Maintenance Contracts (AMC)?',
       answer: 'Yes, our popular Lifetime Warranty Plan (LTW) and AMC packages cover 2 comprehensive scheduled deep services per year, unlimited free breakdown visits, and free labor throughout the year. It keeps your appliance operating at peak efficiency and prevents expensive sudden breakdowns.',
       category: 'Plans',
       isOpen: false
     },
     {
-      question: 'My Faber stove has an uneven flame or a gas smell — what should I do right now?',
+      question: 'My stove has an uneven flame or a gas smell — what should I do right now?',
       answer: 'If you smell gas: Immediately turn off the main cylinder regulator / PNG gas valve. Do NOT turn any electrical switch ON or OFF. Do NOT use matches or lighters. Open all kitchen doors and windows for rapid ventilation. Then step outside the kitchen and immediately call our 24/7 emergency dispatch helpline at 7042121052.',
       category: 'Emergency',
       isOpen: false
@@ -349,24 +503,24 @@ export class App {
 
   // Long-tail SEO search queries retained for search indexing & local discoverability
   readonly seoKeywords = [
-    'Faber Gas Stove & Gas hob installation in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & Gas hob repairing in Anand Vihar, Ghaziabad',
-    'Faber Hob service center in Anand Vihar, Ghaziabad',
+    'Saroj Gas Stove Repair Service Center Anand Vihar Ghaziabad',
+    'Siemens Gas Stove & Hob repair service in Anand Vihar, Ghaziabad',
+    'Bosch Kitchen Hob service center in Anand Vihar, Ghaziabad',
     'Faber Gas Stove & Gas hob service center in Anand Vihar, Ghaziabad (NCR)',
-    'Kitchen hob repair Services centre in Anand Vihar, Ghaziabad',
-    'Faber Gas hob service centre in Anand Vihar, Ghaziabad',
-    'Faber Hob stove repair service center in Anand Vihar, Ghaziabad',
-    'Faber hob service in Anand Vihar, Ghaziabad',
-    'Faber Induction repair service in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & hob won\'t heat issue repairing in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & hob gas Leaking problem solve in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & Gas hob repair & service in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & Gas hob replacement in Anand Vihar, Ghaziabad',
-    'Faber Gas stove top keeps clicking repair in Anand Vihar, Ghaziabad',
-    'Faber Hob not working problem repairing services in Anand Vihar, Ghaziabad',
-    'Faber The gas burner won\'t light repairing in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & hob gas smell problem repairing center in Anand Vihar, Ghaziabad',
-    'Faber Gas Stove & hob a weak burner flames issue repairing in Anand Vihar, Ghaziabad'
+    'Glen Gas Stove & Kitchen Hob repair service in Anand Vihar, Ghaziabad',
+    'Elica kitchen hob repair service center in Anand Vihar, Ghaziabad',
+    'Hafele built-in hob repair and service in Anand Vihar, Ghaziabad',
+    'Gilma gas stove repair service center in Anand Vihar, Ghaziabad',
+    'Crompton kitchen hob and stove service in Anand Vihar, Ghaziabad',
+    'Hindware gas hob repair service center in Anand Vihar, Ghaziabad',
+    'Kitchen hob auto ignition repair in Anand Vihar, Ghaziabad',
+    'Gas stove gas leaking problem solution in Anand Vihar, Ghaziabad',
+    'Multi-brand gas stove & hob replacement in Anand Vihar, Ghaziabad',
+    'Gas stove top keeps clicking repair in Anand Vihar, Ghaziabad',
+    'Hob not working problem repairing services in Anand Vihar, Ghaziabad',
+    'Gas burner won\'t light repairing in Anand Vihar, Ghaziabad',
+    'Gas stove & hob gas smell problem repairing center in Anand Vihar, Ghaziabad',
+    'Gas stove weak burner flames issue repairing in Anand Vihar, Ghaziabad'
   ];
 
   // Filtered Services computed signal
@@ -435,7 +589,7 @@ export class App {
 
     // Generate random booking reference ID
     const randomNum = Math.floor(10000 + Math.random() * 90000);
-    this.confirmedBookingId.set(`G1S-${randomNum}`);
+    this.confirmedBookingId.set(`SGSR-${randomNum}`);
     
     this.isBookingModalOpen.set(false);
     this.isSuccessModalOpen.set(true);
@@ -446,7 +600,7 @@ export class App {
   }
 
   openWhatsApp() {
-    const text = encodeURIComponent(`Hi Gen1Service, I need urgent service for my ${this.selectedBrand()} Hob/Gas Stove in ${this.selectedLocality()}, ${this.selectedCity()}. Please share details.`);
+    const text = encodeURIComponent(`Hi Saroj Gas Stove Repair Service Center, I need urgent service for my ${this.selectedBrand()} Hob/Gas Stove in ${this.selectedLocality()}, ${this.selectedCity()}. Please share details.`);
     window.open(`https://wa.me/91${this.primaryPhone}?text=${text}`, '_blank');
   }
 }

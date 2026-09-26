@@ -23,15 +23,15 @@
 <header class="main-header">
   <div class="container nav-container">
     <!-- Brand Logo -->
-    <a href="#" class="brand-logo">
+    <a href="#" class="brand-logo" title="Saroj Gas Stove Repair Service Center">
       <div class="logo-icon-wrap">
         <svg class="flame-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
         </svg>
       </div>
       <div class="logo-text-group">
-        <span class="logo-main">Gen1<span class="logo-accent">Service</span></span>
-        <span class="logo-tagline">Certified Kitchen Hob & Gas Experts</span>
+        <span class="logo-main">Saroj <span class="logo-accent">Gas Stove Repair</span></span>
+        <span class="logo-tagline">Service Center • Multi-Brand Experts</span>
       </div>
     </a>
 
@@ -60,8 +60,10 @@
 
     <!-- Navigation Links -->
     <nav class="nav-links" [class.open]="isMobileMenuOpen()">
-      <a href="#services" (click)="isMobileMenuOpen.set(false)">Services</a>
+      <a href="#brands" (click)="isMobileMenuOpen.set(false)">Brands</a>
+      <a href="#technicians" (click)="isMobileMenuOpen.set(false)">Technicians</a>
       <a href="#troubleshooter" (click)="isMobileMenuOpen.set(false)">Diagnostics</a>
+      <a href="#services" (click)="isMobileMenuOpen.set(false)">Services</a>
       <a href="#case-study" (click)="isMobileMenuOpen.set(false)">Case Study</a>
       <a href="#pricing" (click)="isMobileMenuOpen.set(false)">Pricing & AMC</a>
       <a href="#faqs" (click)="isMobileMenuOpen.set(false)">FAQs</a>
@@ -104,7 +106,7 @@
       <div class="hero-text-col">
         <div class="hero-trust-badge">
           <span class="star-rating">★★★★★</span>
-          <span class="badge-text">#1 Kitchen Hob Repair in {{ selectedLocality() }}, {{ selectedCity() }}</span>
+          <span class="badge-text">#1 Multi-Brand Kitchen Hob & Stove Repair in {{ selectedLocality() }}, {{ selectedCity() }}</span>
         </div>
 
         <h1 class="hero-title">
@@ -112,7 +114,7 @@
         </h1>
 
         <p class="hero-description">
-          Same-day doorstep repair, chemical-free deep cleaning, auto-ignition troubleshooting, and gas leak fixes by certified technicians in <strong>{{ selectedLocality() }}, {{ selectedCity() }}</strong>. Equipped with 100% genuine OEM spare parts and backed by a 90-day warranty.
+          Same-day doorstep repair, chemical-free deep cleaning, auto-ignition troubleshooting, and gas leak fixes by certified technicians at <strong>Saroj Gas Stove Repair Service Center</strong> in <strong>{{ selectedLocality() }}, {{ selectedCity() }}</strong>. Equipped with 100% genuine OEM spare parts and backed by a 90-day warranty.
         </p>
 
         <!-- Key Benefit Highlights -->
@@ -172,8 +174,15 @@
         </div>
 
         <div class="hero-live-status">
-          <span class="pulse-indicator"></span>
-          <span><strong>4 Technicians</strong> currently available near {{ selectedLocality() }}</span>
+          <div class="tech-avatar-cluster">
+            <img src="/technicians/tech-lead.jpg" alt="Technician Rahul Sharma" class="tech-avatar-thumb" />
+            <img src="/technicians/tech-repair.jpg" alt="Technician Rajesh Kumar" class="tech-avatar-thumb" />
+            <img src="/technicians/tech-safety.jpg" alt="Technician Amit Verma" class="tech-avatar-thumb" />
+          </div>
+          <div class="tech-status-copy">
+            <span class="pulse-indicator"></span>
+            <span><strong>4 Certified Technicians</strong> available near {{ selectedLocality() }}</span>
+          </div>
         </div>
       </div>
 
@@ -207,12 +216,12 @@
               <div class="form-group">
                 <label>Appliance & Issue</label>
                 <select [(ngModel)]="bookingForm.serviceType" name="serviceType" class="form-select">
-                  <option value="Faber Hob Auto-Ignition Repair">Auto-Ignition Not Sparking</option>
-                  <option value="Faber Gas Leakage Emergency Fix">Gas Leakage / Smell (Urgent)</option>
-                  <option value="Faber Uneven Yellow Flame Tuneup">Weak / Yellow Flame</option>
-                  <option value="Faber Deep Degrease & Cleaning">Deep Cleaning & Carbon Removal</option>
-                  <option value="Faber New Hob Installation">New Hob / Stove Installation</option>
-                  <option value="Faber Annual Maintenance AMC">Annual AMC Plan</option>
+                  <option value="Auto-Ignition Not Sparking">Auto-Ignition Not Sparking</option>
+                  <option value="Gas Leakage / Urgent Smell Fix">Gas Leakage / Urgent Smell Fix</option>
+                  <option value="Weak / Yellow Flame Tuneup">Weak / Yellow Flame Tuneup</option>
+                  <option value="Deep Cleaning & Carbon Removal">Deep Cleaning & Carbon Removal</option>
+                  <option value="New Hob / Stove Installation">New Hob / Stove Installation</option>
+                  <option value="Annual Maintenance AMC Plan">Annual Maintenance AMC Plan</option>
                 </select>
               </div>
 
@@ -238,7 +247,7 @@
             <!-- Coupon Applied Tag -->
             <div class="coupon-tag-applied">
               <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span>Promo <strong>GEN1FIRST</strong> applied! ₹100 instant discount at checkout.</span>
+              <span>Promo <strong>SAROJFIRST</strong> applied! ₹100 instant discount at checkout.</span>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block btn-lg btn-glow submit-booking-btn">
@@ -250,6 +259,421 @@
               <span>🔒 Zero upfront payment • Pay only after work completion</span>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top 9 Brands Quick Trust Bar -->
+  <section class="brands-quick-bar">
+    <div class="container brands-quick-container">
+      <div class="quick-bar-left">
+        <span class="quick-bar-badge">Specialist Support</span>
+        <span class="quick-bar-label">Authorized Service & Spares For Top 9 Brands:</span>
+      </div>
+      <div class="quick-logos-row">
+        @for (b of brandCompanies; track b.id) {
+          <button 
+            type="button" 
+            class="quick-brand-chip" 
+            [class.active-chip]="selectedBrand() === b.name" 
+            (click)="setBrand(b.name)" 
+            title="Click to view {{ b.name }} repair services">
+            <span class="chip-dot" [style.background-color]="b.accentColor"></span>
+            <span class="chip-name">{{ b.name }}</span>
+            @if (selectedBrand() === b.name) {
+              <span class="chip-check">✓</span>
+            }
+          </button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Multi-Brand Showcase with Company Logos -->
+  <section class="section brands-section" id="brands">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Multi-Brand Authorizations</span>
+        <h2 class="section-heading">Certified Multi-Brand Service Center</h2>
+        <p class="section-subtitle">Saroj Gas Stove Repair Service Center provides specialized doorstep repair, genuine OEM parts, and factory-standard calibration for all 9 leading stove and kitchen hob brands across Anand Vihar and Ghaziabad.</p>
+      </div>
+
+      <div class="brand-cards-grid">
+        <!-- 1. Siemens -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Siemens'">
+          <div class="company-card-top">
+            <span class="company-badge">German Precision</span>
+            @if (selectedBrand() === 'Siemens') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-siemens">
+            <svg viewBox="0 0 170 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <rect x="2" y="8" width="5" height="22" rx="2" fill="#00646E"/>
+              <rect x="10" y="15" width="5" height="15" rx="2" fill="#00A3A6"/>
+              <text x="24" y="27" font-family="'Outfit', 'Helvetica Neue', Arial, sans-serif" font-weight="900" font-size="22" letter-spacing="3" fill="#00646E">SIEMENS</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Siemens</h3>
+            <p class="company-tagline">German Engineering & iQ700 Gas Hobs</p>
+            <p class="company-spec">Specialized in StepFlame technology, electronic pulse spark units, thermocouple flame sensors, and gas valve micro-switches.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Siemens')">
+              <span>{{ selectedBrand() === 'Siemens' ? 'Selected' : 'Select Siemens' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Siemens Gas Stove / Hob Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Bosch -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Bosch'">
+          <div class="company-card-top">
+            <span class="company-badge">Certified Parts</span>
+            @if (selectedBrand() === 'Bosch') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-bosch">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(2, 4)">
+                <circle cx="15" cy="15" r="14" stroke="#EA1B23" stroke-width="2.5" fill="none"/>
+                <rect x="10" y="5" width="2.8" height="20" rx="1.4" fill="#EA1B23"/>
+                <rect x="17" y="5" width="2.8" height="20" rx="1.4" fill="#EA1B23"/>
+                <circle cx="15" cy="15" r="4" fill="#EA1B23"/>
+              </g>
+              <text x="40" y="27" font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" font-size="24" letter-spacing="2" fill="#1E293B">BOSCH</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Bosch</h3>
+            <p class="company-tagline">FlameSelect & Serie Built-in Hobs</p>
+            <p class="company-spec">Specialized in dual wok burners, flame failure safety cutoff devices, heavy cast iron pan supports, and genuine spark electrodes.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Bosch')">
+              <span>{{ selectedBrand() === 'Bosch' ? 'Selected' : 'Select Bosch' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Bosch Built-in Hob Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. Faber -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Faber'">
+          <div class="company-card-top">
+            <span class="company-badge">Original Spares</span>
+            @if (selectedBrand() === 'Faber') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-faber">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <rect x="2" y="4" width="30" height="30" rx="7" fill="#E30613"/>
+              <path d="M17 9C17 9 11.5 14.5 11.5 19C11.5 22 14 24.5 17 24.5C20 24.5 22.5 22 22.5 19C22.5 14.5 17 9 17 9Z" fill="#FFFFFF"/>
+              <path d="M17 16C17 16 14.8 18.2 14.8 20C14.8 21.2 15.8 22.2 17 22.2C18.2 22.2 19.2 21.2 19.2 20C19.2 18.2 17 16 17 16Z" fill="#FACC15"/>
+              <text x="38" y="25" font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" font-size="22" letter-spacing="2" fill="#E30613">FABER</text>
+              <text x="39" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6.5" letter-spacing="1.5" fill="#64748B">AIR MATTERS</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Faber</h3>
+            <p class="company-tagline">Italian High-Flame Brass Stoves</p>
+            <p class="company-spec">Specialized in heavy brass burners, high-output pulse generators, tough glass cooktops, and manifold gas leak pressure fixes.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Faber')">
+              <span>{{ selectedBrand() === 'Faber' ? 'Selected' : 'Select Faber' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Faber Gas Stove & Hob Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. Glen -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Glen'">
+          <div class="company-card-top">
+            <span class="company-badge">Innovative Tech</span>
+            @if (selectedBrand() === 'Glen') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-glen">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(4, 5)">
+                <circle cx="14" cy="14" r="13" fill="#D9232E"/>
+                <path d="M9 14L13 18L19 10" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <text x="38" y="27" font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" font-size="25" letter-spacing="2.5" fill="#18181B">GLEN</text>
+              <text x="39" y="34" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6" letter-spacing="1.5" fill="#D9232E">LIVE BETTER</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Glen</h3>
+            <p class="company-tagline">Modern Italian Styling & Toughened Glass Hobs</p>
+            <p class="company-spec">Specialized in forged brass multi-spark burners, high-durability gas valves, toughened glass cooktops, and LPG-to-PNG pipeline calibrations.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Glen')">
+              <span>{{ selectedBrand() === 'Glen' ? 'Selected' : 'Select Glen' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Glen Gas Stove & Hob Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Elica -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Elica'">
+          <div class="company-card-top">
+            <span class="company-badge">Italian Design</span>
+            @if (selectedBrand() === 'Elica') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-elica">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(4, 5)">
+                <path d="M14 2L24 14L14 26L4 14Z" fill="#18181B"/>
+                <circle cx="14" cy="14" r="4" fill="#E11D48"/>
+              </g>
+              <text x="36" y="27" font-family="'Outfit', 'Helvetica Neue', sans-serif" font-weight="800" font-size="26" letter-spacing="1.5" fill="#18181B">elica</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Elica</h3>
+            <p class="company-tagline">Designer Glass Cooktops & Hobs</p>
+            <p class="company-spec">Specialized in multi-flame crown calibration, sealed burner cups, toughened glass crack checks, and auto-ignition repairs.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Elica')">
+              <span>{{ selectedBrand() === 'Elica' ? 'Selected' : 'Select Elica' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Elica Hob & Cooktop Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Hafele -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Hafele'">
+          <div class="company-card-top">
+            <span class="company-badge">Premium Luxury</span>
+            @if (selectedBrand() === 'Hafele') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-hafele">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <rect x="2" y="5" width="156" height="28" rx="6" fill="#D40028"/>
+              <text x="80" y="26" text-anchor="middle" font-family="'Outfit', 'Arial Black', sans-serif" font-weight="900" font-size="19" letter-spacing="2.5" fill="#FFFFFF">HÄFELE</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Hafele</h3>
+            <p class="company-tagline">Altius & Vortex Heavy Brass Ranges</p>
+            <p class="company-spec">Specialized in direct flame injection, flame-failure thermopiles, heavy brass gas cocks, and European fitting calibration.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Hafele')">
+              <span>{{ selectedBrand() === 'Hafele' ? 'Selected' : 'Select Hafele' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Hafele Premium Hob Service')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. Gilma -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Gilma'">
+          <div class="company-card-top">
+            <span class="company-badge">High Fuel Savings</span>
+            @if (selectedBrand() === 'Gilma') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-gilma">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(4, 5)">
+                <path d="M14 2C14 2 6 10.5 6 17C6 21.5 9.5 25 14 25C18.5 25 22 21.5 22 17C22 10.5 14 2 14 2Z" fill="#EA580C"/>
+                <path d="M14 10C14 10 10 14 10 17C10 19.2 11.8 21 14 21C16.2 21 18 19.2 18 17C18 14 14 10 14 10Z" fill="#FACC15"/>
+              </g>
+              <text x="32" y="25" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" letter-spacing="1" fill="#E63946">Gilma</text>
+              <text x="33" y="33" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="6.5" letter-spacing="1.2" fill="#71717A">KITCHEN APPLIANCES</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Gilma</h3>
+            <p class="company-tagline">High Thermal Glass Stoves & Cooktops</p>
+            <p class="company-spec">Specialized in forged brass nozzles, simmer flame balancing, anti-leak valve assemblies, and glass cooktop restoration.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Gilma')">
+              <span>{{ selectedBrand() === 'Gilma' ? 'Selected' : 'Select Gilma' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Gilma Gas Stove Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 7. Crompton -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Crompton'">
+          <div class="company-card-top">
+            <span class="company-badge">Trusted Quality</span>
+            @if (selectedBrand() === 'Crompton') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-crompton">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(2, 6)">
+                <circle cx="13" cy="13" r="12" fill="#005A9C"/>
+                <path d="M6 13C6 9 9 6 13 6C17 6 20 9 20 13" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="13" cy="13" r="3" fill="#FFFFFF"/>
+              </g>
+              <text x="34" y="25" font-family="'Outfit', sans-serif" font-weight="800" font-size="21" letter-spacing="0.5" fill="#005A9C">Crompton</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Crompton</h3>
+            <p class="company-tagline">DuraHobs & Tri-Ring Brass Stoves</p>
+            <p class="company-spec">Specialized in thermal shock resistant glass tops, high heat fuel efficiency, durable continuous spark igniters, and burner de-scaling.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Crompton')">
+              <span>{{ selectedBrand() === 'Crompton' ? 'Selected' : 'Select Crompton' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Crompton Hob & Stove Service')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+
+        <!-- 8. Hindware -->
+        <div class="company-card" [class.active-company]="selectedBrand() === 'Hindware'">
+          <div class="company-card-top">
+            <span class="company-badge">Expert Service</span>
+            @if (selectedBrand() === 'Hindware') {
+              <span class="currently-active-pill">Active Selected</span>
+            }
+          </div>
+          <div class="company-logo-holder logo-bg-hindware">
+            <svg viewBox="0 0 160 38" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-svg-logo">
+              <g transform="translate(2, 6)">
+                <rect x="2" y="2" width="22" height="22" rx="5" fill="#C8102E"/>
+                <path d="M7 7H13V13H7Z" fill="#FFFFFF"/>
+                <path d="M13 13H19V19H13Z" fill="#FFFFFF"/>
+              </g>
+              <text x="32" y="24" font-family="'Outfit', sans-serif" font-weight="800" font-size="20" letter-spacing="0.5" fill="#C8102E">hindware</text>
+              <text x="33" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="6.5" letter-spacing="1.5" fill="#64748B">APPLIANCES</text>
+            </svg>
+          </div>
+          <div class="company-card-body">
+            <h3 class="company-name">Hindware</h3>
+            <p class="company-tagline">Enliven & Italian Flame Technology</p>
+            <p class="company-spec">Specialized in high-torque knobs, spark electrodes, LPG to PNG gas pipeline nozzle conversions, and brass burner replacements.</p>
+          </div>
+          <div class="company-card-footer">
+            <button type="button" class="btn btn-company-select" (click)="setBrand('Hindware')">
+              <span>{{ selectedBrand() === 'Hindware' ? 'Selected' : 'Select Hindware' }}</span>
+            </button>
+            <button type="button" class="btn btn-primary btn-sm" (click)="openBookingModal('Hindware Gas Hob Repair')">
+              Book Visit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certified Technicians Showcase Section -->
+  <section class="section technicians-section" id="technicians">
+    <div class="container">
+      <div class="section-title-wrap">
+        <span class="section-badge">Verified Field Specialists</span>
+        <h2 class="section-heading">Meet Our Certified Technicians</h2>
+        <p class="section-subtitle">Background-verified, company-trained gas appliance engineers carrying genuine OEM parts, precision multimeters, and ultrasonic gas detectors right to your doorstep.</p>
+      </div>
+
+      <div class="technicians-grid">
+        @for (tech of technicians; track tech.name) {
+          <div class="technician-card">
+            <div class="tech-img-box">
+              <img [src]="tech.image" [alt]="tech.name" class="tech-card-image" loading="lazy" />
+              <span class="tech-exp-badge">{{ tech.experience }}</span>
+              <span class="tech-verified-tag">
+                <svg class="icon-xs" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                {{ tech.badge }}
+              </span>
+            </div>
+
+            <div class="tech-card-content">
+              <div class="tech-header-info">
+                <h3 class="tech-name">{{ tech.name }}</h3>
+                <span class="tech-role">{{ tech.role }}</span>
+              </div>
+
+              <div class="tech-meta-stats">
+                <div class="tech-stat">
+                  <span class="stat-star">★ {{ tech.rating }}</span>
+                  <span class="stat-lbl">Rating</span>
+                </div>
+                <span class="stat-divider">|</span>
+                <div class="tech-stat">
+                  <span class="stat-num">{{ tech.jobsCompleted }}+</span>
+                  <span class="stat-lbl">Jobs Fixed</span>
+                </div>
+                <span class="stat-divider">|</span>
+                <div class="tech-stat">
+                  <span class="stat-num">60 Min</span>
+                  <span class="stat-lbl">Response</span>
+                </div>
+              </div>
+
+              <div class="tech-specialties">
+                <span class="spec-heading">Brand & Technical Focus:</span>
+                <div class="spec-tags">
+                  @for (spec of tech.specialties; track spec) {
+                    <span class="spec-tag">{{ spec }}</span>
+                  }
+                </div>
+              </div>
+
+              <div class="tech-status-row">
+                <span class="tech-status-dot"></span>
+                <span class="tech-status-text">{{ tech.status }}</span>
+              </div>
+
+              <div class="tech-card-actions">
+                <button type="button" (click)="openBookingModal('Technician Request: ' + tech.name + ' (' + tech.role + ')')" class="btn btn-primary btn-block btn-sm">
+                  <span>Book {{ tech.name.split(' ')[0] }}</span>
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="technicians-trust-banner">
+        <div class="trust-pill-item">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Police Verified & Aadhaar KYC Done</span>
+        </div>
+        <div class="trust-pill-item">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>Certified for Siemens, Bosch, Faber, Glen & Leading Brands</span>
+        </div>
+        <div class="trust-pill-item">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>90-Day Written Warranty on All Work</span>
         </div>
       </div>
     </div>
@@ -392,12 +816,12 @@
         
         <div class="case-study-layout">
           <div class="case-study-content">
-            <h2 class="case-study-title">Sector 31 Anand Vihar: 4-Burner Glass Hob Auto-Ignition Restored in 90 Minutes</h2>
+            <h2 class="case-study-title">Sector 31 Anand Vihar: Built-in Glass Hob Auto-Ignition Restored in 90 Minutes</h2>
             <p class="case-study-narrative">
-              A resident in Sector 31, Anand Vihar called Gen1service at 5:00 PM on a Sunday when their built-in glass hob stopped sparking right before an important family dinner. 
+              A resident in Sector 31, Anand Vihar called Saroj Gas Stove Repair Service Center at 5:00 PM on a Sunday when their built-in glass hob stopped sparking right before an important family dinner. 
             </p>
             <p class="case-study-narrative">
-              Our mobile technician arrived with authentic Faber replacement modules, conducted a pressure test, de-scaled all four brass burner nozzles, replaced the failed ignition pulse generator, and completed full testing within 90 minutes. Dinner stayed on schedule!
+              Our mobile technician arrived with authentic OEM replacement modules, conducted a pressure test, de-scaled all four brass burner nozzles, replaced the failed ignition pulse generator, and completed full testing within 90 minutes. Dinner stayed on schedule!
             </p>
 
             <div class="case-study-metrics">
@@ -407,11 +831,22 @@
               </div>
               <div class="metric-box">
                 <span class="metric-num">100%</span>
-                <span class="metric-lbl">Genuine Faber Part</span>
+                <span class="metric-lbl">Genuine OEM Part</span>
               </div>
               <div class="metric-box">
                 <span class="metric-num">90 Days</span>
                 <span class="metric-lbl">Written Warranty</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- On-Site Technician Real Job Photo -->
+          <div class="case-study-photo-col">
+            <div class="case-study-photo-frame">
+              <img src="/technicians/tech-repair.jpg" alt="Technician Rajesh Kumar repairing gas hob on site" class="case-study-tech-photo" />
+              <div class="case-study-photo-caption">
+                <span class="live-dot-green"></span>
+                <span>Rajesh K. Servicing Glass Hob • Anand Vihar</span>
               </div>
             </div>
           </div>
@@ -514,23 +949,6 @@
             <button (click)="openBookingModal('Annual Maintenance AMC Plan')" class="btn btn-outline btn-block">Choose AMC Plan</button>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Multi-Brand Repair Compatibility -->
-  <section class="section brands-section">
-    <div class="container">
-      <div class="brands-inner">
-        <h4 class="brands-title">Authorized Multi-Brand Gas Stove & Hob Support Across Ghaziabad</h4>
-        <div class="brand-pills-row">
-          @for (b of brands; track b) {
-            <span class="brand-pill" [class.active-brand]="b === selectedBrand()" (click)="setBrand(b)">
-              {{ b }}
-            </span>
-          }
-        </div>
-        <p class="brand-subtext">Our engineers carry genuine parts and factory diagnostic tools for all major European and Indian kitchen appliance brands.</p>
       </div>
     </div>
   </section>
@@ -651,10 +1069,10 @@
       <!-- Col 1: About & Trust -->
       <div class="footer-col">
         <div class="footer-logo">
-          <span class="logo-main">Gen1<span class="logo-accent">Service</span></span>
+          <span class="logo-main">Saroj <span class="logo-accent">Gas Stove Repair</span></span>
         </div>
         <p class="footer-about">
-          Ghaziabad's premier doorstep kitchen appliance service network specializing in Faber built-in kitchen hobs, glass cooktops, and commercial cooking ranges. Backed by certified engineers, authentic OEM spare parts, and 90-day guarantees.
+          Ghaziabad's premier doorstep kitchen appliance service center specializing in Siemens, Bosch, Faber, Glen, Elica, Hafele, Gilma, Crompton, and Hindware built-in kitchen hobs, glass cooktops, and commercial cooking ranges. Backed by certified engineers, authentic OEM spare parts, and 90-day guarantees.
         </p>
         <div class="footer-stats-badges">
           <span class="stat-badge">⚡ 60-Min Dispatch</span>
@@ -666,7 +1084,7 @@
       <div class="footer-col">
         <h4 class="footer-heading">Services Offered</h4>
         <ul class="footer-links">
-          <li><a href="#services">Faber Hob Ignition Repair</a></li>
+          <li><a href="#services">Auto-Ignition Spark Repair</a></li>
           <li><a href="#services">Gas Leakage Detection & Fix</a></li>
           <li><a href="#services">Chemical-free Deep Cleaning</a></li>
           <li><a href="#services">Brass Burner Replacement</a></li>
@@ -723,7 +1141,7 @@
     </div>
 
     <div class="footer-bottom-bar">
-      <p>© {{ 2026 }} Gen1Service. All Rights Reserved. Faber is a registered trademark of its respective owner. We provide independent authorized repair, maintenance & spare parts services.</p>
+      <p>© {{ 2026 }} Saroj Gas Stove Repair Service Center. All Rights Reserved. Siemens, Bosch, Faber, Glen, Elica, Hafele, Gilma, Crompton, and Hindware are registered trademarks of their respective owners. We provide independent authorized repair, maintenance & spare parts services.</p>
       <div class="footer-bottom-links">
         <a href="#services">Privacy Policy</a>
         <span>•</span>
@@ -828,7 +1246,17 @@
         </div>
         <div class="detail-row">
           <span>Technician Status:</span>
-          <span class="status-dispatched">🚀 Assigning nearest van</span>
+          <span class="status-dispatched">🚀 Assigning nearest mobile van</span>
+        </div>
+      </div>
+
+      <!-- Assigned Technician Card -->
+      <div class="assigned-tech-preview">
+        <img src="/technicians/tech-lead.jpg" alt="Rahul Sharma" class="assigned-tech-photo" />
+        <div class="assigned-tech-meta">
+          <span class="assigned-tech-badge">Assigned Field Engineer</span>
+          <strong>Rahul Sharma (8+ Yrs Exp)</strong>
+          <p>Aadhaar Verified • Carrying genuine parts • ETA: 60 Mins</p>
         </div>
       </div>
 
